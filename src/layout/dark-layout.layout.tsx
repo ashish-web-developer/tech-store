@@ -2,24 +2,19 @@ import { Outlet } from "react-router-dom";
 import { ThemeProvider } from "styled-components";
 
 // styled components
-import {
-  StyledPageWrapper,
-  StyledMain,
-} from "@/styles/layout/light-layout.style";
+import { StyledPageWrapper, StyledMain } from "@/styles/layout/layout.style";
 
 // theme
 import theme from "@/theme/dark.theme";
 
 // components
-import Header from "@/components/nav/nav.component";
 import Sidebar from "@/components/sidebar/sidebar.component";
 
-const LightLayout = () => {
+const DarkLayout = () => {
   return (
     <ThemeProvider theme={theme}>
       <StyledPageWrapper>
         <StyledMain>
-          <Header />
           <Sidebar />
         </StyledMain>
         <Outlet />
@@ -27,4 +22,4 @@ const LightLayout = () => {
     </ThemeProvider>
   );
 };
-export default LightLayout;
+export default DarkLayout;

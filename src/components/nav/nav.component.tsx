@@ -4,7 +4,7 @@ import type { FC } from "react";
 // styled components
 import { StyledLink, StyledNav } from "@/styles/components/nav/nav.style";
 
-const Header: FC = () => {
+const Navbar: FC = () => {
   return (
     <StyledNav>
       <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
@@ -147,4 +147,4 @@ const Header: FC = () => {
   );
 };
 
-export default Header;
+export default Navbar;

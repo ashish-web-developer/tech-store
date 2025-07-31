@@ -5,12 +5,12 @@ import "@/index.css";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
 // layouts
-import DefaultLayout from "@/layout/light-layout.layout";
+import LayoutProvider from "@/provider/layout.provider";
 
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <DefaultLayout />,
+    element: <LayoutProvider />,
     children: [
       {
         index: true,
