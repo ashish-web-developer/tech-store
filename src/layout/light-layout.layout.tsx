@@ -1,4 +1,6 @@
 import { Outlet } from "react-router-dom";
+
+// styled
 import { ThemeProvider } from "styled-components";
 
 // styled components

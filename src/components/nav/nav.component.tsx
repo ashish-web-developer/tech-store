@@ -8,18 +8,11 @@ const Navbar: FC = () => {
   return (
     <StyledNav>
       <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
-        <a
-          href="https://flowbite.com/"
-          className="flex items-center space-x-3 rtl:space-x-reverse"
-        >
-          <img
-            src="https://flowbite.com/docs/images/logo.svg"
-            className="h-8"
-            alt="Flowbite Logo"
-          />
-          <span className="self-center text-2xl font-semibold whitespace-nowrap">
-            Flowbite
-          </span>
+        <a href="/" className="flex items-center space-x-3 rtl:space-x-reverse">
+          <div className="h-8 w-8 bg-red-50 rounded-lg flex items-center justify-center">
+            <span className="text-primary-foreground font-bold text-lg">T</span>
+          </div>
+          <span className="font-bold text-xl">TechStore</span>
         </a>
         <div className="flex items-center md:order-2 space-x-3 md:space-x-0 rtl:space-x-reverse">
           <button

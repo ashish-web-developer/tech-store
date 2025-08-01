@@ -1,8 +1,8 @@
 const theme = {
   palette: {
     primary: {
-      main: "#ffffff",
-      dark: "#000000",
+      main: "#FFFFFA",
+      dark: "rgb(38, 38, 38)",
       light: "#FFFFFF",
     },
     secondary: {
