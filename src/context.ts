@@ -1,10 +1,10 @@
 import { createContext } from "react";
 
-export type IThemeType = "light" | "dark" | "colorful";
-const ThemeContext = createContext<{
-  theme: IThemeType;
-  themeUpdater?: (val: IThemeType) => void;
+export type IMode = "light" | "dark" | "colorful";
+const ModeContext = createContext<{
+  mode: IMode;
+  modeUpdater?: (val: IMode) => void;
 }>({
-  theme: "light",
+  mode: "light",
 });
-export { ThemeContext };
+export { ModeContext };

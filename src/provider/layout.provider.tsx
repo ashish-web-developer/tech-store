@@ -1,7 +1,7 @@
 import { useState } from "react";
 // types
 import type { FC } from "react";
-import type { IThemeType } from "@/context";
+import type { IMode } from "@/context";
 
 import { createGlobalStyle } from "styled-components";
 
@@ -9,34 +9,40 @@ import { createGlobalStyle } from "styled-components";
 import LightLayout from "@/layout/light-layout.layout";
 import DarkLayout from "@/layout/dark-layout.layout";
 
+// theme
+import lightTheme from "@/theme/light.theme";
+import darkTheme from "@/theme/dark.theme";
+
 // context
-import { ThemeContext } from "@/context";
+import { ModeContext } from "@/context";
 
 const GlobalStyle = createGlobalStyle<{
-  current_theme: IThemeType;
+  current_mode: IMode;
 }>`
   body {
     background-color:${(props) =>
-      props.current_theme == "dark" ? "#000000" : "#fffffa"};
+      props.current_mode == "dark"
+        ? darkTheme.palette.primary.main
+        : lightTheme.palette.primary.main};
   }
 `;
 
 const LayoutProvider: FC = () => {
-  const [theme, setTheme] = useState<IThemeType>("light");
+  const [mode, setMode] = useState<IMode>("light");
   return (
-    <ThemeContext.Provider
+    <ModeContext.Provider
       value={{
-        theme,
-        themeUpdater: (val) => setTheme(val),
+        mode,
+        modeUpdater: (val) => setMode(val),
       }}
     >
-      <GlobalStyle current_theme={theme} />
-      {theme == "light" ? (
+      <GlobalStyle current_mode={mode} />
+      {mode == "light" ? (
         <LightLayout></LightLayout>
       ) : (
         <DarkLayout></DarkLayout>
       )}
-    </ThemeContext.Provider>
+    </ModeContext.Provider>
   );
 };
 
