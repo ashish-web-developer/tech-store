@@ -7,11 +7,19 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 // layouts
 import LayoutProvider from "@/provider/layout.provider";
 
+// pages
+import Index from "@/pages/index.page";
+
 const router = createBrowserRouter([
   {
     path: "/",
     element: <LayoutProvider />,
-    children: [],
+    children: [
+      {
+        index: true,
+        element: <Index />,
+      },
+    ],
   },
 ]);
 

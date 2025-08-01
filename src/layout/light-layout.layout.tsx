@@ -18,8 +18,8 @@ const LightLayout = () => {
       <StyledPageWrapper>
         <StyledMain>
           <Navbar />
+          <Outlet />
         </StyledMain>
-        <Outlet />
       </StyledPageWrapper>
     </ThemeProvider>
   );
