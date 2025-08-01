@@ -5,7 +5,7 @@ import type { FC } from "react";
 import { useTheme } from "styled-components";
 
 // icons
-import { X, Home, User, Mail, Layers, FileText, Settings } from "lucide-react";
+import { Home, User, Mail, Layers, FileText, Settings } from "lucide-react";
 
 const sidebar_items = [
   { icon: Home, label: "Home", path: "/" },
@@ -64,7 +64,7 @@ const Sidebar: FC = () => {
           <ul className="space-y-2 font-medium">
             {sidebar_items.map((item) => {
               return (
-                <li key = {item.path}>
+                <li key={item.path}>
                   <a
                     href={item.path}
                     className="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group"
