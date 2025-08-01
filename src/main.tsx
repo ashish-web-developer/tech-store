@@ -11,12 +11,7 @@ const router = createBrowserRouter([
   {
     path: "/",
     element: <LayoutProvider />,
-    children: [
-      {
-        index: true,
-        element: <h6>What is up dude</h6>,
-      },
-    ],
+    children: [],
   },
 ]);
 
