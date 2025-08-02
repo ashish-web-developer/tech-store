@@ -1,44 +1,58 @@
 import styled from "styled-components";
-import { NavLink } from "react-router-dom"; // Assuming React Router for navigation
+import { Link } from "react-router-dom";
 
-const NavWrapper = styled.nav`
+const NavbarContainer = styled.div`
+  display: none;
+  width: 100%;
+  align-items: center;
+  justify-content: space-between;
+
+  @media (min-width: 768px) {
+    display: flex;
+    width: auto;
+    order: 1;
+  }
+`;
+
+const NavbarList = styled.ul`
   display: flex;
   flex-direction: column;
   font-weight: 500;
-  padding: 1rem; /* p-4 */
-  border: 1px solid ${({ theme }) => theme.palette.primary.main};
+  padding: 1rem;
+  margin-top: 1rem;
   border-radius: 0.5rem;
-  background: ${({ theme }) => theme.palette.primary.light};
 
   @media (min-width: 768px) {
     flex-direction: row;
-    align-items: center;
+    margin-top: 0;
     border: none;
-    background: transparent;
+    gap: 2rem;
     padding: 0;
-    gap: 2rem; /* space-x-8 */
   }
 `;
 
-const NavItem = styled(NavLink)`
+const StyledLink = styled(Link)<{ $active?: boolean }>`
   display: block;
-  padding: 0.5rem 0.75rem; /* py-2 px-3 */
-  border-radius: 0.25rem;
-  color: ${({ theme }) => theme.palette.info.main};
+  padding: 0.5rem 0.75rem;
+  color: ${({ theme }) => theme.palette.info.light};
+  border-radius: 4px;
   text-decoration: none;
   transition: color 0.3s ease;
 
-  &.active {
-    color: ${({ theme }) => theme.palette.warning.main};
-    font-weight: 600;
+  &:hover {
+    color: ${({ theme }) => theme.palette.info.main};
   }
 
-  &:hover {
-    color: ${({ theme }) => theme.palette.warning.main};
-  }
+  ${({ $active, theme }) =>
+    $active &&
+    `
+      color: ${theme.palette.info.main};
+    `}
 
   @media (min-width: 768px) {
-    padding: 0; /* md:p-0 */
+    background: transparent;
+    padding: 0;
   }
 `;
-export {NavWrapper,NavItem};
+
+export {NavbarContainer,NavbarList,StyledLink};

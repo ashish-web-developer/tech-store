@@ -1,27 +1,40 @@
 // types
 import type { FC } from "react";
+import { useLocation } from "react-router-dom";
 
-// styled components
-import { NavWrapper, NavItem } from "@/styles/components/nav/nav-links.style";
+// styled componets
+import {
+  NavbarContainer,
+  NavbarList,
+  StyledLink,
+} from "@/styles/components/nav/nav-links.style";
 
-const navbar_items = [
-  { label: "Home", path: "/" },
-  { label: "About", path: "/about" },
-  { label: "Contact", path: "/contact" },
-];
+const NavbarLinks: FC = () => {
+  const location = useLocation();
 
-const NavLinks: FC = () => {
+  const navbar_items = [
+    { path: "/", label: "Home" },
+    { path: "/about", label: "About" },
+    { path: "/contact", label: "Contact" },
+  ];
+
   return (
-    <div id="navbar-user">
-      <NavWrapper>
+    <NavbarContainer id="navbar-user">
+      <NavbarList>
         {navbar_items.map((item) => (
-          <NavItem key={item.path} to={item.path} end>
-            {item.label}
-          </NavItem>
+          <li key={item.path}>
+            <StyledLink
+              to={item.path}
+              $active={location.pathname === item.path}
+              aria-current="page"
+            >
+              {item.label}
+            </StyledLink>
+          </li>
         ))}
-      </NavWrapper>
-    </div>
+      </NavbarList>
+    </NavbarContainer>
   );
 };
 
-export default NavLinks;
+export default NavbarLinks;
