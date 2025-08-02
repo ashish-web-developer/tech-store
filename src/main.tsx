@@ -13,16 +13,28 @@ import LayoutProvider from "@/provider/layout.provider";
 
 // pages
 import Index from "@/pages/index.page";
+import Error from "@/pages/error.page";
+import About from "@/pages/about.page";
+import Contact from "@/pages/contact.page";
 
 const queryClient = new QueryClient();
 const router = createBrowserRouter([
   {
     path: "/",
     element: <LayoutProvider />,
+    errorElement: <Error />,
     children: [
       {
         index: true,
         element: <Index />,
+      },
+      {
+        path: "/about",
+        element: <About />,
+      },
+      {
+        path: "/contact",
+        element: <Contact />,
       },
     ],
   },

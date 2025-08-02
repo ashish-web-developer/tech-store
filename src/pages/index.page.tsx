@@ -2,8 +2,9 @@
 import { useTheme } from "styled-components";
 // components
 import Hero from "@/components/hero/hero.component";
-import ProductsGallery from "@/components/products-gallery/products-gallery.component";
 import FeatureCard from "@/components/feature-card/feature-card.component";
+import ProductsGallery from "@/components/products-gallery/products-gallery.component";
+import ProductCard from "@/components/product-card/product-card.component";
 
 // icons
 import { Zap, Shield, Rocket, Globe, Users, Heart } from "lucide-react";
@@ -51,7 +52,6 @@ export default function Index() {
   return (
     <>
       <Hero />
-      <ProductsGallery />
       {/* Product Categories */}
       <section
         style={{
@@ -70,7 +70,7 @@ export default function Index() {
             </h2>
             <p
               style={{
-                color: theme.palette.info.main,
+                color: theme.palette.info.light,
               }}
               className="text-xl text-muted-foreground max-w-2xl mx-auto"
             >
@@ -90,6 +90,34 @@ export default function Index() {
             ))}
           </div>
         </div>
+      </section>
+      {/* Products Section */}
+      <section
+        className="py-20"
+        style={{
+          backgroundColor: theme.palette.primary.main,
+        }}
+      >
+        <div className="text-center mb-16">
+          <h2
+            className="text-3xl md:text-4xl font-bold mb-4"
+            style={{
+              color: theme.palette.info.main,
+            }}
+          >
+            Featured Products
+          </h2>
+          <p
+            className="text-xl text-muted-foreground max-w-2xl mx-auto"
+            style={{
+              color: theme.palette.info.light,
+            }}
+          >
+            Discover our hand-picked selection of premium products with
+            exclusive discounts.
+          </p>
+        </div>
+        <ProductsGallery />
       </section>
     </>
   );
