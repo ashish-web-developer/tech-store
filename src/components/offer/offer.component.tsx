@@ -1,8 +1,18 @@
 import { Zap, Shield, Heart } from "lucide-react";
 
+// styled theme
+import { useTheme } from "styled-components";
+
 const Offer = () => {
+  const theme = useTheme();
   return (
-    <section className="py-20 bg-muted/30">
+    <section
+      style={{
+        backgroundColor: theme.palette.primary.main,
+        color: theme.palette.info.main,
+      }}
+      className="py-20 bg-muted/30"
+    >
       <div className="text-center mb-12">
         <h2 className="text-3xl md:text-4xl font-bold mb-6">
           Special Offers & Deals
@@ -12,7 +22,13 @@ const Offer = () => {
           benefits.
         </p>
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
-          <button className="bg-primary text-white text-lg px-12 py-4 rounded-lg shadow-md hover:bg-primary/90 transition-colors">
+          <button
+            style={{
+              backgroundColor: theme.palette.info.main,
+              color: theme.palette.primary.main,
+            }}
+            className="text-lg px-12 py-4 rounded-lg shadow-md transition-colors"
+          >
             View All Deals
           </button>
           <button className="border border-primary text-primary text-lg px-12 py-4 rounded-lg hover:bg-primary/10 transition-colors">
