@@ -3,16 +3,22 @@ import { useContext, useState } from "react";
 import type { FC } from "react";
 
 // styled components
-import { StyledLink, StyledNav } from "@/styles/components/nav/nav.style";
+import { StyledLink, StyledNav } from "@/styles/components/nav/nav-bar.style";
 
 // styled theme
 import { useTheme } from "styled-components";
 
 // icons
-import { Moon, Sun, Monitor } from "lucide-react";
+import { Moon, Sun, Menu } from "lucide-react";
 
 // context
 import { ModeContext } from "@/context";
+
+const navbar_items = [
+  { label: "Home", path: "/" },
+  { label: "About", path: "/about" },
+  { label: "Contact", path: "/contact" },
+];
 
 const Navbar: FC = () => {
   const theme = useTheme();
@@ -21,7 +27,8 @@ const Navbar: FC = () => {
   return (
     <StyledNav>
       <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
-        <a href="/" className="flex items-center space-x-3 rtl:space-x-reverse">
+        {/* ++++++++++++ LOGO +++++++++  */}
+        <div className="flex items-center space-x-3 rtl:space-x-reverse">
           <div
             style={{
               backgroundColor: theme.palette.info.main,
@@ -38,8 +45,10 @@ const Navbar: FC = () => {
             </span>
           </div>
           <span className="font-bold text-xl">TechStore</span>
-        </a>
+        </div>
+
         <div className="flex items-center md:order-2 space-x-3 md:space-x-0 rtl:space-x-reverse">
+          {/* ++++++++++++ MODE TOGGLER CTA +++++++++  */}
           <button
             type="button"
             className="flex text-sm rounded-full md:me-0 focus:ring-4 focus:ring-gray-300"
@@ -53,7 +62,8 @@ const Navbar: FC = () => {
             <span className="sr-only">Open user menu</span>
             {mode == "dark" ? <Moon /> : <Sun />}
           </button>
-          {/* Dropdown menu */}
+
+          {/* ++++++++++++ MODE DROPDOWN MENU +++++++++  */}
           {is_dropdown_open && (
             <div
               style={{
@@ -96,22 +106,7 @@ const Navbar: FC = () => {
             aria-controls="navbar-user"
             aria-expanded="false"
           >
-            <span className="sr-only">Open main menu</span>
-            <svg
-              className="w-5 h-5"
-              aria-hidden="true"
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 17 14"
-            >
-              <path
-                stroke="currentColor"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={2}
-                d="M1 1h15M1 7h15M1 13h15"
-              />
-            </svg>
+            <Menu />
           </button>
         </div>
         <div
@@ -119,31 +114,19 @@ const Navbar: FC = () => {
           id="navbar-user"
         >
           <ul className="flex flex-col font-medium p-4 md:p-0 mt-4 rounded-lg md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0">
-            <li>
-              <StyledLink
-                href="#"
-                className="block py-2 px-3 text-white bg-blue-700 rounded-sm md:bg-transparent md:text-blue-700 md:p-0 md:dark:text-blue-500"
-                aria-current="page"
-              >
-                Home
-              </StyledLink>
-            </li>
-            <li>
-              <StyledLink
-                href="#"
-                className="block py-2 px-3 text-gray-900 rounded-sm hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700"
-              >
-                About
-              </StyledLink>
-            </li>
-            <li>
-              <StyledLink
-                href="#"
-                className="block py-2 px-3 text-gray-900 rounded-sm hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700"
-              >
-                Services
-              </StyledLink>
-            </li>
+            {navbar_items.map((item) => {
+              return (
+                <li key={item.path}>
+                  <StyledLink
+                    to={item.path}
+                    className="block py-2 px-3 text-white bg-blue-700 rounded-sm md:bg-transparent md:text-blue-700 md:p-0 md:dark:text-blue-500"
+                    aria-current="page"
+                  >
+                    {item.label}
+                  </StyledLink>
+                </li>
+              );
+            })}
           </ul>
         </div>
       </div>

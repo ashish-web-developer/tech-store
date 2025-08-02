@@ -10,7 +10,7 @@ import { StyledPageWrapper, StyledMain } from "@/styles/layout/layout.style";
 import theme from "@/theme/light.theme";
 
 // components
-import Navbar from "@/components/nav/nav.component";
+import Navbar from "@/components/nav/nav-bar.component";
 
 const LightLayout = () => {
   return (
@@ -18,8 +18,8 @@ const LightLayout = () => {
       <StyledPageWrapper>
         <StyledMain>
           <Navbar />
+          <Outlet />
         </StyledMain>
-        <Outlet />
       </StyledPageWrapper>
     </ThemeProvider>
   );

@@ -9,6 +9,7 @@ import theme from "@/theme/dark.theme";
 
 // components
 import Sidebar from "@/components/sidebar/sidebar.component";
+import Navbar from "@/components/nav/nav-bar.component";
 
 const DarkLayout = () => {
   return (
@@ -16,8 +17,11 @@ const DarkLayout = () => {
       <StyledPageWrapper>
         <StyledMain>
           <Sidebar />
+          <div className="sm:ml-64">
+            <Navbar />
+            <Outlet />
+          </div>
         </StyledMain>
-        <Outlet />
       </StyledPageWrapper>
     </ThemeProvider>
   );
