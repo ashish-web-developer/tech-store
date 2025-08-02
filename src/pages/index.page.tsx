@@ -4,7 +4,7 @@ import { useTheme } from "styled-components";
 import Hero from "@/components/hero/hero.component";
 import FeatureCard from "@/components/feature-card/feature-card.component";
 import ProductsGallery from "@/components/products-gallery/products-gallery.component";
-import ProductCard from "@/components/product-card/product-card.component";
+import Offer from "@/components/offer/offer.component";
 
 // icons
 import { Zap, Shield, Rocket, Globe, Users, Heart } from "lucide-react";
@@ -119,6 +119,7 @@ export default function Index() {
         </div>
         <ProductsGallery />
       </section>
+      <Offer />
     </>
   );
 }
