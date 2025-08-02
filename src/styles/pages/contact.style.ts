@@ -39,7 +39,7 @@ const Input = styled.input`
   &:focus {
     outline: none;
     border-color: ${({ theme }) => theme.palette.secondary.light};
-    box-shadow: 0 0 0 2px ${({ theme }) => theme.palette.secondary.light}; 
+    box-shadow: 0 0 0 2px ${({ theme }) => theme.palette.secondary.light};
   }
 `;
 
@@ -54,8 +54,8 @@ const Textarea = styled.textarea`
 
   &:focus {
     outline: none;
-    border-color: ${({ theme }) => theme.palette.secondary.dark};
-    box-shadow: 0 0 0 2px ${({ theme }) => theme.palette.secondary.dark}33;
+    border-color: ${({ theme }) => theme.palette.secondary.main};
+    box-shadow: 0 0 0 2px ${({ theme }) => theme.palette.secondary.main};
   }
 `;
 
