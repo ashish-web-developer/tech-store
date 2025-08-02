@@ -38,8 +38,8 @@ const Input = styled.input`
 
   &:focus {
     outline: none;
-    border-color: ${({ theme }) => theme.palette.secondary.dark};
-    box-shadow: 0 0 0 2px ${({ theme }) => theme.palette.secondary.dark}33; /* 20% opacity */
+    border-color: ${({ theme }) => theme.palette.secondary.light};
+    box-shadow: 0 0 0 2px ${({ theme }) => theme.palette.secondary.light}; 
   }
 `;
 
