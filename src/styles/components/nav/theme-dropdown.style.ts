@@ -35,9 +35,8 @@ const MenuItem = styled.button`
   font-weight: 500;
   color: ${({ theme }) => theme.palette.info.main};
   text-align: left;
-
   &:hover {
-    background: ${({ theme }) => theme.palette.primary.light};
+    background: ${({ theme }) => theme.palette.secondary.main};
   }
 `;
 export { DropdownWrapper, Header, MenuList, MenuItem };
