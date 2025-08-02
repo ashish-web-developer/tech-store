@@ -5,8 +5,8 @@ const theme = {
       light: "#FFFFFF",
     },
     secondary: {
-      main: "#FFF3F0",
-      dark: "#AFA2FF",
+      main: "#e7ecef",
+      light: "#f1faee",
     },
     info: {
       main: "#333333",

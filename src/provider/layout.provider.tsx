@@ -1,3 +1,4 @@
+import type { ReactElement } from "react";
 import { useState } from "react";
 // types
 import type { FC } from "react";
@@ -6,8 +7,9 @@ import type { IMode } from "@/context";
 import { createGlobalStyle } from "styled-components";
 
 // layout
-import LightLayout from "@/layout/light-layout.layout";
-import DarkLayout from "@/layout/dark-layout.layout";
+import LightLayout from "@/layout/light-theme.layout";
+import DarkLayout from "@/layout/dark-theme.layout";
+import ColorfulLayout from "@/layout/colorful-theme.layout";
 
 // theme
 import lightTheme from "@/theme/light.theme";
@@ -26,6 +28,11 @@ const GlobalStyle = createGlobalStyle<{
         : lightTheme.palette.primary.main};
   }
 `;
+const layouts: Record<"light" | "dark" | "colorful", ReactElement> = {
+  light: <LightLayout />,
+  dark: <DarkLayout />,
+  colorful: <ColorfulLayout />,
+};
 
 const LayoutProvider: FC = () => {
   const [mode, setMode] = useState<IMode>("light");
@@ -37,11 +44,12 @@ const LayoutProvider: FC = () => {
       }}
     >
       <GlobalStyle current_mode={mode} />
-      {mode == "light" ? (
+      {/* {mode == "light" ? (
         <LightLayout></LightLayout>
       ) : (
         <DarkLayout></DarkLayout>
-      )}
+      )} */}
+      {layouts[mode] ?? <LightLayout />}
     </ModeContext.Provider>
   );
 };
