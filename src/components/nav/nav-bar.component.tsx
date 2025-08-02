@@ -3,7 +3,7 @@ import { useContext, useState } from "react";
 import type { FC } from "react";
 
 // styled components
-import { StyledLink, StyledNav } from "@/styles/components/nav/nav.style";
+import { StyledLink, StyledNav } from "@/styles/components/nav/nav-bar.style";
 
 // styled theme
 import { useTheme } from "styled-components";

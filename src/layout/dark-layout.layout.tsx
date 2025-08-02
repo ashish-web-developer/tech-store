@@ -9,7 +9,7 @@ import theme from "@/theme/dark.theme";
 
 // components
 import Sidebar from "@/components/sidebar/sidebar.component";
-import Navbar from "@/components/nav/nav.component";
+import Navbar from "@/components/nav/nav-bar.component";
 
 const DarkLayout = () => {
   return (
