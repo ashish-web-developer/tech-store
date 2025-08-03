@@ -28,7 +28,7 @@ const GlobalStyle = createGlobalStyle<{
         : lightTheme.palette.primary.main};
   }
 `;
-const layouts: Record<"light" | "dark" | "colorful", ReactElement> = {
+const layouts: Record<IMode, ReactElement> = {
   light: <LightLayout />,
   dark: <DarkLayout />,
   colorful: <ColorfulLayout />,

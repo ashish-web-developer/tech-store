@@ -1,6 +1,9 @@
 import type { FC } from "react";
 import type { IProduct } from "../products-gallery/products-gallery.component";
 
+// component
+import ProductImageSkeleton from "@/components/product-card/product-image-skeleton.component";
+
 // styled theme
 import { useTheme } from "styled-components";
 
@@ -23,12 +26,9 @@ const ProductCard: FC<IProduct> = ({
       className="h-full flex flex-col rounded-xl shadow-sm hover:shadow-lg transition-all duration-200 hover:-translate-y-1 border border-gray-100"
     >
       {/* Image */}
+
       <div className="relative">
-        <img
-          src="https://plus.unsplash.com/premium_photo-1728598786780-c051b9c78ccb?q=80&w=2070&auto=format&fit=crop"
-          alt={title}
-          className="w-full h-52 object-cover rounded-t-xl"
-        />
+        <ProductImageSkeleton />
         {discount > 0 && (
           <span
             style={{
