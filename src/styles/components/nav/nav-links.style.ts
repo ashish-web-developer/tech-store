@@ -1,8 +1,8 @@
 import styled from "styled-components";
 import { Link } from "react-router-dom";
 
-const NavbarContainer = styled.div<{ $isMobileMenuOpen?: boolean }>`
-  display: ${({ $isMobileMenuOpen }) => ($isMobileMenuOpen ? "flex" : "none")};
+const NavbarContainer = styled.div<{ $is_mobile_menu_open?: boolean }>`
+  display: ${({ $is_mobile_menu_open }) => ($is_mobile_menu_open ? "flex" : "none")};
   flex-direction: column;
   width: 100%;
   background: ${({ theme }) => theme.palette.primary.light};

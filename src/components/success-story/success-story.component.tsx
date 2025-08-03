@@ -1,17 +1,20 @@
+// types
 import type { FC } from "react";
 
-// styled theme
-import { useTheme } from "styled-components";
+// styled components
+import {
+  Wrapper,
+  Card,
+  CardTitle,
+  CardDescription,
+} from "@/styles/components/success-story/success-story.style";
 
 const success_story_items = [
   {
     title: "10+ Years",
     description: "Redefining the Digital Shopping Experience",
   },
-  {
-    title: "5000+ Products",
-    description: "Curated from Top Global Brands",
-  },
+  { title: "5000+ Products", description: "Curated from Top Global Brands" },
   {
     title: "200K+ Happy Customers",
     description: "Trusting Us for Their Tech Needs",
@@ -23,36 +26,19 @@ const success_story_items = [
 ];
 
 const SuccessStory: FC = () => {
-  const theme = useTheme();
   return (
-    <div className="w-full flex-col justify-center items-start gap-6 flex">
-      <div className="w-full grid md:grid-cols-2 grid-cols-1 gap-8">
-        {success_story_items.map((item, index) => (
-          <div
-            key={index}
-            className="w-full h-full p-3.5 rounded-xl border border-gray-200 hover:border-gray-400 transition-all duration-700 ease-in-out flex-col justify-start items-start gap-2.5 inline-flex"
-          >
-            <h4
-              style={{
-                color: theme.palette.info.main,
-              }}
-              className="text-gray-900 text-2xl font-bold leading-9"
-            >
-              {item.title}
-            </h4>
-            <p
-              style={{
-                color: theme.palette.info.light,
-              }}
-              className="text-gray-500 text-base font-normal leading-relaxed"
-            >
-              {item.description}
-            </p>
-          </div>
+    <Wrapper>
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+        {success_story_items.map(({ title, description }, i) => (
+          <Card key={i}>
+            <CardTitle>{title}</CardTitle>
+            <CardDescription>{description}</CardDescription>
+          </Card>
         ))}
       </div>
-    </div>
+    </Wrapper>
   );
 };
 
 export default SuccessStory;
+

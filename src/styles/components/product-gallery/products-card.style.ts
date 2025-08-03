@@ -5,23 +5,24 @@ const Card = styled.div`
   display: flex;
   flex-direction: column;
   height: 100%;
-  border-radius: 0.75rem; /* rounded-xl */
-  border: 1px solid #e5e7eb; /* border-gray-100 */
-  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
-  transition: all 0.2s;
+  border-radius: 0.75rem;
+  border: 1px solid #e5e7eb;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+  transition: transform 0.35s ease, box-shadow 0.35s ease;
+
   &:hover {
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-    transform: translateY(-2px);
+    box-shadow: 0 12px 28px rgba(0, 0, 0, 0.15);
+    transform: translateY(-6px) scale(1.03);
   }
 `;
 
 const DiscountBadge = styled.span`
   background: ${({ theme }) => theme.palette.warning.main};
   color: white;
-  font-size: 0.75rem; /* text-xs */
+  font-size: 0.75rem;
   font-weight: 600;
   padding: 0.25rem 0.5rem;
-  border-radius: 9999px; /* full */
+  border-radius: 9999px;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
   position: absolute;
   top: 0.75rem;
@@ -50,7 +51,7 @@ const Description = styled.p`
   font-size: 0.875rem;
   margin-top: 0.5rem;
   display: -webkit-box;
-  -webkit-line-clamp: 3; /* line-clamp-3 */
+  -webkit-line-clamp: 3;
   -webkit-box-orient: vertical;
   overflow: hidden;
 `;

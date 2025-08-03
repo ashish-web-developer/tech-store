@@ -1,21 +1,20 @@
-
 import styled from "styled-components";
 
 const Card = styled.div`
-  width: 100%; /* Always fill grid cell */
-  padding: 1.5rem; /* p-6 */
+  width: 100%;
+  padding: 1.5rem;
   border: 1px solid ${({ theme }) => theme.palette.info.light};
-  border-radius: 0.5rem; /* rounded-lg */
+  border-radius: 0.5rem;
   background: ${({ theme }) => theme.palette.primary.light};
 
   @media (min-width: 768px) {
-    max-width: 20rem; /* Limit width only for larger screens if needed */
+    max-width: 20rem;
   }
 `;
 
 const IconWrapper = styled.div`
-  width: 3rem; /* w-12 */
-  height: 3rem; /* h-12 */
+  width: 3rem;
+  height: 3rem;
   background: ${({ theme }) =>
     `${theme.palette.primary.main}1A`}; /* 10% opacity */
   border: 1px solid ${({ theme }) => theme.palette.info.light};
@@ -28,7 +27,7 @@ const IconWrapper = styled.div`
 
 const Title = styled.h5`
   color: ${({ theme }) => theme.palette.info.main};
-  font-size: 1.5rem; /* text-2xl */
+  font-size: 1.5rem;
   font-weight: 600;
   margin-bottom: 0.5rem;
   letter-spacing: -0.01em;

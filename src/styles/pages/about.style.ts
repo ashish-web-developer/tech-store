@@ -34,6 +34,6 @@ const ImageWrapper = styled.div`
   background-color: ${({ theme }) => theme.palette.primary.light};
   border-radius: 1.5rem;
   overflow: hidden;
-  border: 1px solid rgba(229, 231, 235, 0.5); /* Tailwind border-gray-200 */
+  border: 1px solid rgba(229, 231, 235, 0.5);
 `;
-export { Section, Heading, SubHeading, Paragraph, ThemedButton,ImageWrapper };
+export { Section, Heading, SubHeading, Paragraph, ThemedButton, ImageWrapper };

@@ -8,12 +8,12 @@ import {
 } from "@/styles/components/nav/nav-links.style";
 
 interface NavbarLinksProps {
-  isMobileMenuOpen?: boolean;
+  is_mobile_menu_open?: boolean;
   onClickHandler?: () => void;
 }
 
 const NavbarLinks: FC<NavbarLinksProps> = ({
-  isMobileMenuOpen,
+  is_mobile_menu_open,
   onClickHandler,
 }) => {
   const location = useLocation();
@@ -25,7 +25,7 @@ const NavbarLinks: FC<NavbarLinksProps> = ({
   ];
 
   return (
-    <NavbarContainer $isMobileMenuOpen={isMobileMenuOpen}>
+    <NavbarContainer $is_mobile_menu_open={is_mobile_menu_open}>
       <NavbarList>
         {navbar_items.map((item) => (
           <li key={item.path}>

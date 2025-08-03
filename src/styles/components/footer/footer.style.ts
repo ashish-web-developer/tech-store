@@ -57,7 +57,7 @@ const FeatureIconWrapper = styled.div`
 `;
 
 const FeatureTitle = styled.h3`
-  font-size: 1.25rem; /* text-xl */
+  font-size: 1.25rem;
   font-weight: 600;
   margin-bottom: 0.5rem;
 `;

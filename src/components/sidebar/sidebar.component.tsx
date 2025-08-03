@@ -13,7 +13,7 @@ import {
 } from "@/styles/components/sidebar/sidebar.style";
 
 // icons
-import { Home, User, Mail, Layers, FileText, Settings, X } from "lucide-react";
+import { Home, User, Mail, X } from "lucide-react";
 
 // context
 import { SidebarContext } from "@/context";
@@ -22,9 +22,6 @@ const sidebar_items = [
   { icon: Home, label: "Home", path: "/" },
   { icon: User, label: "About", path: "/about" },
   { icon: Mail, label: "Contact", path: "/contact" },
-  { icon: Layers, label: "Projects", path: "/projects" },
-  { icon: FileText, label: "Blog", path: "/blog" },
-  { icon: Settings, label: "Settings", path: "/settings" },
 ];
 
 const Sidebar: FC = () => {

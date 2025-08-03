@@ -7,29 +7,29 @@ const Section = styled.section`
 
 const Heading = styled.h2`
   color: ${({ theme }) => theme.palette.info.main};
-  font-size: 2.25rem; /* text-4xl */
-  font-weight: 800; /* font-extrabold */
+  font-size: 2.25rem; 
+  font-weight: 800; 
   text-align: center;
 `;
 
 const SubHeading = styled.p`
   color: ${({ theme }) => theme.palette.info.light};
   text-align: center;
-  font-size: 1.125rem; /* sm:text-xl */
+  font-size: 1.125rem; 
   font-weight: 300;
 `;
 
 const Label = styled.label`
   display: block;
   margin-bottom: 0.5rem;
-  font-size: 0.875rem; /* text-sm */
+  font-size: 0.875rem; 
   font-weight: 500;
   color: ${({ theme }) => theme.palette.info.main};
 `;
 
 const Input = styled.input`
   background: ${({ theme }) => theme.palette.primary.main};
-  border: 1px solid #d1d5db; /* gray-300 */
+  border: 1px solid #d1d5db; 
   color: ${({ theme }) => theme.palette.info.main};
   border-radius: 0.5rem;
   padding: 0.625rem;
