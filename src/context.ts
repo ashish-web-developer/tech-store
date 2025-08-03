@@ -7,4 +7,11 @@ const ModeContext = createContext<{
 }>({
   mode: "light",
 });
-export { ModeContext };
+
+const SidebarContext = createContext<{
+  is_sidebar_open: boolean;
+  udpateIsSidebarOpen?: (val: boolean) => void;
+}>({
+  is_sidebar_open: false,
+});
+export { ModeContext, SidebarContext };
