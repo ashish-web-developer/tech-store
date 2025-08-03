@@ -1,7 +1,8 @@
 import { useContext } from "react";
-import clsx from "clsx";
+// types
 import type { FC } from "react";
-import { ShoppingBag, MoveRight } from "lucide-react";
+
+// styled components
 import {
   HeroSection,
   HeroTitle,
@@ -10,6 +11,12 @@ import {
   OutlineButton,
 } from "@/styles/components/hero/hero.style";
 import { ModeContext } from "@/context";
+
+// icons
+import { ShoppingBag, MoveRight } from "lucide-react";
+
+// helpers
+import clsx from "clsx";
 
 const Hero: FC = () => {
   const { mode } = useContext(ModeContext);
