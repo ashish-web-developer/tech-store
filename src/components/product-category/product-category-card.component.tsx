@@ -27,7 +27,13 @@ const ProductCategoryCard: FC<IProps> = ({
   const theme = useTheme();
 
   return (
-    <Card>
+    <Card
+      className="
+        transform transition-all duration-300 ease-in-out
+        hover:scale-105 hover:shadow-xl 
+        animate-fadeIn
+      "
+    >
       <IconWrapper>
         <Icon size={30} color={theme.palette.info.main} />
       </IconWrapper>

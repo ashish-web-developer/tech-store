@@ -1,5 +1,9 @@
 import { useContext, useState, useEffect, useRef } from "react";
+
+// types
 import type { FC } from "react";
+
+// styled theme
 import { useTheme } from "styled-components";
 
 // styled components
@@ -12,38 +16,39 @@ import {
 import Logo from "@/components/nav/logo.component";
 import NavLinks from "@/components/nav/nav-links.component";
 import ThemeDropdown from "@/components/nav/theme-dropdown.component";
+import ModeIcon from "@/components/nav/mode-icon.component";
 
 // icons
-import { Moon, Sun, Menu, X } from "lucide-react";
+import { Menu, X } from "lucide-react";
 
 // context
 import { ModeContext, SidebarContext } from "@/context";
 
 const Navbar: FC = () => {
   const theme = useTheme();
-  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [is_drop_down_open, setIsDropdownOpen] = useState(false);
+  const [is_mobile_menu_open, setIsMobileMenuOpen] = useState(false);
   const { mode } = useContext(ModeContext);
   const { udpateIsSidebarOpen } = useContext(SidebarContext);
-  const dropdownRef = useRef<HTMLDivElement>(null);
+  const drop_down_ref = useRef<HTMLDivElement>(null);
 
   // Close on outside click
   useEffect(() => {
     function handleClickOutside(event: MouseEvent) {
       if (
-        dropdownRef.current &&
-        !dropdownRef.current.contains(event.target as Node)
+        drop_down_ref.current &&
+        !drop_down_ref.current.contains(event.target as Node)
       ) {
         setIsDropdownOpen(false);
       }
     }
-    isDropdownOpen &&
+    is_drop_down_open &&
       document.addEventListener("mousedown", handleClickOutside);
     return () => {
-      isDropdownOpen &&
+      is_drop_down_open &&
         document.removeEventListener("mousedown", handleClickOutside);
     };
-  }, [isDropdownOpen]);
+  }, [is_drop_down_open]);
 
   return (
     <>
@@ -69,7 +74,7 @@ const Navbar: FC = () => {
               }}
               aria-label="Toggle menu"
             >
-              {isMobileMenuOpen ? (
+              {is_mobile_menu_open ? (
                 <X size={24} color={theme.palette.info.main} />
               ) : (
                 <Menu size={24} color={theme.palette.info.main} />
@@ -77,25 +82,21 @@ const Navbar: FC = () => {
             </button>
 
             {/* Theme Toggle */}
-            <div className="relative" ref={dropdownRef}>
+            <div className="relative" ref={drop_down_ref}>
               <ModeButton onClick={() => setIsDropdownOpen((prev) => !prev)}>
-                {mode === "light" ? (
-                  <Sun color={theme.palette.primary.main} />
-                ) : (
-                  <Moon color={theme.palette.primary.main} />
-                )}
+                <ModeIcon mode={mode} color={theme.palette.primary.main} />
               </ModeButton>
 
-              {isDropdownOpen && <ThemeDropdown />}
+              {is_drop_down_open && <ThemeDropdown />}
             </div>
           </div>
         </div>
 
         {/* Mobile Menu (Dropdown from top) */}
-        {isMobileMenuOpen && (
+        {is_mobile_menu_open && (
           <div className="sm:hidden w-full bg-white shadow-md border-t border-gray-200">
             <NavLinks
-              isMobileMenuOpen={isMobileMenuOpen}
+              is_mobile_menu_open={is_mobile_menu_open}
               onClickHandler={() => setIsMobileMenuOpen(false)}
             />
           </div>

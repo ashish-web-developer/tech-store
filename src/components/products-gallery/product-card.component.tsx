@@ -1,3 +1,4 @@
+// types
 import type { FC } from "react";
 import type { IProduct } from "@/types/product";
 

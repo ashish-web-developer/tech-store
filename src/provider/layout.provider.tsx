@@ -52,7 +52,8 @@ const LayoutProvider: FC = () => {
   const [mode, setMode] = useState<IMode>("light");
 
   useLayoutEffect(() => {
-    setMode(localStorage.getItem("theme") as IMode);
+    const current_theme = localStorage.getItem("theme") as IMode;
+    current_theme && setMode(current_theme);
   }, []);
 
   return (

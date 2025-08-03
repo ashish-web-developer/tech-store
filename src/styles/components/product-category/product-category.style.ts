@@ -1,4 +1,3 @@
-
 import styled from "styled-components";
 
 const Section = styled.section`
@@ -7,23 +6,19 @@ const Section = styled.section`
 
 const Heading = styled.h2`
   color: ${({ theme }) => theme.palette.info.main};
-  font-size: 1.875rem; /* text-3xl */
-  font-weight: 700; /* font-bold */
+  font-size: 1.875rem;
+  font-weight: 700;
 
   @media (min-width: 768px) {
-    font-size: 2.25rem; /* md:text-4xl */
+    font-size: 2.25rem;
   }
 `;
 
 const SubHeading = styled.p`
   color: ${({ theme }) => theme.palette.info.light};
-  font-size: 1.25rem; /* text-xl */
-  max-width: 42rem; /* max-w-2xl */
+  font-size: 1.25rem;
+  max-width: 42rem;
   margin: 0 auto;
 `;
 
-export {
-    Section,
-    Heading,
-    SubHeading
-}
+export { Section, Heading, SubHeading };

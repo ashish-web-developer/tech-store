@@ -25,8 +25,8 @@ const ModeButton = styled.button`
   align-items: center;
   gap: 0.5rem;
   padding: 0.75rem 1.5rem;
-  font-size: 0.875rem; /* text-sm */
-  border-radius: 9999px; /* rounded-full */
+  font-size: 0.875rem;
+  border-radius: 9999px;
   font-weight: 600;
   box-shadow: var(--shadow-xs);
   transition: all 0.3s ease;
