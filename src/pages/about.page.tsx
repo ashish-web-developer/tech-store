@@ -20,6 +20,9 @@ import SuccessStory from "@/components/success-story/success-story.component";
 // icons
 import { MoveRight } from "lucide-react";
 
+// image
+import GadgetImage from  "@/assets/images/gadget.jpg"
+
 const About: FC = () => {
   const theme = useTheme();
   return (
@@ -54,7 +57,7 @@ const About: FC = () => {
           <ImageWrapper className="sm:w-[564px] sm:h-[646px]">
             <img
               className="w-full h-full object-cover"
-              src="https://images.pexels.com/photos/6214479/pexels-photo-6214479.jpeg"
+              src={GadgetImage}
               alt="About Us"
             />
           </ImageWrapper>
