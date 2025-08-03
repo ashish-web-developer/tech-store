@@ -1,69 +1,126 @@
-# React + TypeScript + Vite
+# Tech Store – Modern E‑Commerce for Tech Products
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A sleek and responsive online store for tech-related products like laptops, smartphones, accessories, and gadgets. Built with React, TypeScript, Styled‑Components, and Tailwind CSS, it offers multiple themes, a clean browsing experience, and a modern UI for seamless shopping.
 
-Currently, two official plugins are available:
+## Tech Stack
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+**Client:** React, React Router, Styled-Components, TailwindCSS, TanStack Query, clsx, Lucide React Icons
 
-## Expanding the ESLint configuration
+**Build Tool:** Vite, TypeScript
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+**Server:** (N/A - Currently client-side only)
 
-```js
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+## Features
 
-      // Remove tseslint.configs.recommended and replace with this
-      ...tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      ...tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      ...tseslint.configs.stylisticTypeChecked,
+- **Multiple Themes** – Supports Light, Dark, and Colorful modes with smooth theme transitions.
+- **Responsive Layout** – Optimized for mobile, tablet, and desktop with adaptive navigation (top menu, sidebar for dark mode).
+- **Dynamic Product Categories** – Elegant grid-based category display with interactive hover effects.
+- **Featured Products Section** – Showcases premium tech products with a clean, modern UI.
+- **Interactive UI Elements** – Dropdown menus, mobile-friendly navigation, and animated cards for better engagement.
+- **Theming with Styled-Components & TailwindCSS** – Hybrid styling approach for flexibility and rapid design changes.
+- **Fast Navigation** – Built with React Router for seamless client-side routing.
+- **Iconography** – Uses Lucide React icons for crisp, lightweight icons.
+- **Performance Optimized** – Vite-powered development for lightning-fast builds and hot reloads.
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+## Lessons Learned
+
+- **Theme Management** – Learned how to implement multiple themes (Light, Dark, Colorful) and handle smooth transitions between them using Styled-Components and React Context.
+- **Responsive Design Patterns** – Gained experience in designing navigation layouts that adapt for different themes and screen sizes, including switching between a top navigation bar and a sidebar.
+- **Hybrid Styling Approach** – Improved skills in combining TailwindCSS for rapid UI development with Styled-Components for theme-based customizations.
+- **Interactive UI Enhancements** – Learned to integrate animations and hover effects to make components more engaging and intuitive.
+- **Component Layout Variations** – Explored different component layouts based on active theme to deliver unique experiences without rewriting core functionality.
+- **Dropdown & Click Outside Handling** – Implemented robust dropdown menus that open on click and close when clicking outside, improving overall usability.
+- **Vite & Modern React** – Enhanced understanding of Vite’s build performance benefits and how to structure a modern React + TypeScript project effectively.
+
+## Run Locally
+
+### Prerequisites
+
+- **Node.js** v22.16.0
+- **pnpm** package manager
+
+### Steps
+
+Clone the project
+
+```bash
+git clone https://github.com/ashish-web-developer/tech-store
+
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+Go to the project directory
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```bash
+cd tech-store
 ```
+
+Install dependencies
+
+```bash
+pnpm install
+```
+
+Start the development server
+
+```bash
+pnpm dev
+```
+
+The app will be available at http://localhost:5174/
+
+## API Reference
+
+#### Get all products
+
+```http
+  GET https://fakestoreapi.in/api/products?page=1&limit=8
+```
+
+| Parameter | Type     | Description                                               |
+| :-------- | :------- | :-------------------------------------------------------- |
+| `page`    | `number` | **Optional**. Page number (default: `1`)                  |
+| `limit`   | `number` | **Optional**. Number of products to return (default: `8`) |
+
+## Acknowledgements
+
+I would like to thank:
+
+- **React.js** and **TailwindCSS** communities for their excellent documentation and resources.
+- **Styled-Components** for making it easier to manage dynamic themes and component styling.
+- **Lucide Icons** for providing beautiful and customizable SVG icons.
+- **TanStack Query** for simplifying server state management.
+- Everyone who provided feedback and suggestions during the development process.## Authors
+
+Ashish Prajapati
+
+Frontend Developer | JavaScript & React.js Enthusiast
+
+- 🛠️ 1.8+ years of experience building scalable and interactive web applications
+
+- 🎮 Creator of Fortune Realm, a multiplayer gaming platform
+
+- 💼 LinkedIn: [Linkedin](https://www.linkedin.com/in/ashish-classic/)
+
+- 🐙 GitHub: [Github](https://github.com/ashish-web-developer)
+
+- 📧 Email: ashish_classic@proton.me
+
+## License
+
+Copyright © 2025 Ashish Prajapati
+
+All Rights Reserved.
+
+This source code and all associated files are the intellectual property of Ashish Prajapati.  
+The code is provided solely for personal viewing, evaluation, and educational purposes.
+
+You may not:
+
+- Copy, reproduce, modify, or distribute this code
+- Use this code or any part of it in any software or product
+- Host or deploy this project publicly or commercially
+- Claim ownership or authorship of any part of this code
+
+Use of this code for any other purpose is strictly prohibited without the express written permission of the author.
+
+For inquiries or permission requests, contact: ashish_classic@proton.me
