@@ -94,7 +94,10 @@ const Navbar: FC = () => {
         {/* Mobile Menu (Dropdown from top) */}
         {isMobileMenuOpen && (
           <div className="sm:hidden w-full bg-white shadow-md border-t border-gray-200">
-            <NavLinks isMobileMenuOpen={isMobileMenuOpen} />
+            <NavLinks
+              isMobileMenuOpen={isMobileMenuOpen}
+              onClickHandler={() => setIsMobileMenuOpen(false)}
+            />
           </div>
         )}
       </NavbarWrapper>
