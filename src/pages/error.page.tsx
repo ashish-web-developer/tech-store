@@ -1,5 +1,7 @@
+import { useRouteError } from "react-router-dom";
 // types
 import type { FC } from "react";
+import type { ErrorResponse } from "react-router-dom";
 
 // icons
 import { AlertTriangle } from "lucide-react";
@@ -18,13 +20,15 @@ import {
 } from "@/styles/pages/error.style";
 
 const Error: FC = () => {
+  const error = useRouteError() as ErrorResponse;
+
   return (
     <Wrapper>
       <Card>
         <IconWrapper>
           <AlertTriangle size={42} color="#f42c04" />
         </IconWrapper>
-        <ErrorCode>404</ErrorCode>
+        <ErrorCode>{error.status}</ErrorCode>
         <Title>Page Not Found</Title>
         <Message>
           Sorry, we couldn’t find the page you’re looking for. Please check the
