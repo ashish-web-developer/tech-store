@@ -9,12 +9,13 @@ import {
   Header,
   MenuList,
   MenuItem,
+  ActiveIndicator,
 } from "@/styles/components/nav/theme-dropdown.style";
 // component
 import Logo from "@/components/nav/logo.component";
 
 // icons
-import { Moon, Sun, Rainbow } from "lucide-react";
+import { Moon, Sun, Rainbow, Check } from "lucide-react";
 
 // context
 import { ModeContext } from "@/context";
@@ -26,7 +27,7 @@ const mode_items = [
 ];
 
 const ThemeDropdown: FC = () => {
-  const { modeUpdater } = useContext(ModeContext);
+  const { mode, modeUpdater } = useContext(ModeContext);
 
   return (
     <DropdownWrapper>
@@ -44,6 +45,11 @@ const ThemeDropdown: FC = () => {
             >
               {item.icon}
               {item.label}
+              {item.value == mode && (
+                <ActiveIndicator>
+                  <Check />
+                </ActiveIndicator>
+              )}
             </MenuItem>
           </li>
         ))}

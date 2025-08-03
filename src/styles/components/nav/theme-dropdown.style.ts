@@ -39,4 +39,9 @@ const MenuItem = styled.button`
     background: ${({ theme }) => theme.palette.secondary.main};
   }
 `;
-export { DropdownWrapper, Header, MenuList, MenuItem };
+const ActiveIndicator = styled.span`
+  display: flex;
+  align-items: center;
+  color: ${({ theme }) => theme.palette.info.main};
+`;
+export { DropdownWrapper, Header, MenuList, MenuItem, ActiveIndicator };
