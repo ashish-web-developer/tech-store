@@ -14,46 +14,65 @@ import NavLinks from "@/components/nav/nav-links.component";
 import ThemeDropdown from "@/components/nav/theme-dropdown.component";
 
 // icons
-import { Moon, Sun, Menu } from "lucide-react";
+import { Moon, Sun, Menu, X } from "lucide-react";
 
 // context
 import { ModeContext } from "@/context";
 
-const Navbar: FC<{ onMenuClick?: () => void }> = ({ onMenuClick }) => {
-  const [is_dropdown_open, setIsDropdownOpen] = useState(false);
+const Navbar: FC = () => {
+  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const theme = useTheme();
   const { mode } = useContext(ModeContext);
 
   return (
-    <NavbarWrapper>
-      <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
-        <Logo />
-        <NavLinks />
-        <div className="flex items-center gap-3 md:order-2">
-          {/* Mobile Hamburger Icon */}
-          <button
-            className="sm:hidden p-2 rounded-lg hover:bg-gray-100 transition-colors"
-            onClick={onMenuClick}
-            aria-label="Open menu"
-          >
-            <Menu size={24} color={theme.palette.info.main} />
-          </button>
+    <>
+      <NavbarWrapper>
+        <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
+          <Logo />
 
-          {/* Theme Toggle */}
-          <div className="relative">
-            <ModeButton onClick={() => setIsDropdownOpen((prev) => !prev)}>
-              {mode === "light" ? (
-                <Sun color={theme.palette.primary.main} />
+          {/* Desktop NavLinks */}
+          <div className="hidden sm:block">
+            <NavLinks />
+          </div>
+
+          <div className="flex items-center gap-3 md:order-2">
+            {/* Mobile Hamburger Icon */}
+            <button
+              className="sm:hidden p-2 rounded-lg hover:bg-gray-100 transition-colors"
+              onClick={() => setIsMobileMenuOpen((prev) => !prev)}
+              aria-label="Toggle menu"
+            >
+              {isMobileMenuOpen ? (
+                <X size={24} color={theme.palette.info.main} />
               ) : (
-                <Moon color={theme.palette.primary.main} />
+                <Menu size={24} color={theme.palette.info.main} />
               )}
-            </ModeButton>
+            </button>
 
-            {is_dropdown_open && <ThemeDropdown />}
+            {/* Theme Toggle */}
+            <div className="relative">
+              <ModeButton onClick={() => setIsDropdownOpen((prev) => !prev)}>
+                {mode === "light" ? (
+                  <Sun color={theme.palette.primary.main} />
+                ) : (
+                  <Moon color={theme.palette.primary.main} />
+                )}
+              </ModeButton>
+
+              {isDropdownOpen && <ThemeDropdown />}
+            </div>
           </div>
         </div>
-      </div>
-    </NavbarWrapper>
+
+        {/* Mobile Menu (Dropdown from top) */}
+        {isMobileMenuOpen && (
+          <div className="sm:hidden w-full bg-white shadow-md border-t border-gray-200">
+            <NavLinks isMobileMenuOpen = {isMobileMenuOpen} />
+          </div>
+        )}
+      </NavbarWrapper>
+    </>
   );
 };
 

@@ -1,15 +1,13 @@
 // types
 import type { FC } from "react";
 import { useLocation } from "react-router-dom";
+import { NavbarContainer, NavbarList, StyledLink } from "@/styles/components/nav/nav-links.style";
 
-// styled componets
-import {
-  NavbarContainer,
-  NavbarList,
-  StyledLink,
-} from "@/styles/components/nav/nav-links.style";
+interface NavbarLinksProps {
+  isMobileMenuOpen?: boolean;
+}
 
-const NavbarLinks: FC = () => {
+const NavbarLinks: FC<NavbarLinksProps> = ({ isMobileMenuOpen }) => {
   const location = useLocation();
 
   const navbar_items = [
@@ -19,7 +17,7 @@ const NavbarLinks: FC = () => {
   ];
 
   return (
-    <NavbarContainer id="navbar-user">
+    <NavbarContainer $isMobileMenuOpen={isMobileMenuOpen}>
       <NavbarList>
         {navbar_items.map((item) => (
           <li key={item.path}>

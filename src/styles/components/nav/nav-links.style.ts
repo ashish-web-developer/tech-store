@@ -1,15 +1,17 @@
 import styled from "styled-components";
 import { Link } from "react-router-dom";
 
-const NavbarContainer = styled.div`
-  display: none;
+const NavbarContainer = styled.div<{ $isMobileMenuOpen?: boolean }>`
+  display: ${({ $isMobileMenuOpen }) => ($isMobileMenuOpen ? "flex" : "none")};
+  flex-direction: column;
   width: 100%;
-  align-items: center;
-  justify-content: space-between;
+  background: ${({ theme }) => theme.palette.primary.light};
 
   @media (min-width: 768px) {
     display: flex;
+    flex-direction: row;
     width: auto;
+    background: transparent;
     order: 1;
   }
 `;
