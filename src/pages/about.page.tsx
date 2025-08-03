@@ -1,3 +1,4 @@
+import { useContext } from "react";
 // types
 import type { FC } from "react";
 
@@ -20,11 +21,12 @@ import SuccessStory from "@/components/success-story/success-story.component";
 // icons
 import { MoveRight } from "lucide-react";
 
-// image
-import GadgetImage from  "@/assets/images/gadget.jpg"
+// context
+import { ModeContext } from "@/context";
 
 const About: FC = () => {
   const theme = useTheme();
+  const { mode } = useContext(ModeContext);
   return (
     <Section className="py-24 relative xl:mr-0 lg:mr-5 mr-0">
       <div className="w-full max-w-7xl px-4 md:px-5 mx-auto grid lg:grid-cols-2 gap-10">
@@ -57,7 +59,7 @@ const About: FC = () => {
           <ImageWrapper className="sm:w-[564px] sm:h-[646px]">
             <img
               className="w-full h-full object-cover"
-              src={GadgetImage}
+              src={`/${mode}-gadget.jpg`}
               alt="About Us"
             />
           </ImageWrapper>
