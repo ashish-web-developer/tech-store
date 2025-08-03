@@ -1,13 +1,16 @@
 import styled from "styled-components";
 import { NavLink } from "react-router-dom";
 
+const NAVBAR_HEIGHT_MOBILE = "70px";
+const NAVBAR_HEIGHT_DESKTOP = "80px";
+
 const SidebarContainer = styled.aside<{ $open: boolean }>`
   position: fixed;
-  top: 0;
+  top: ${NAVBAR_HEIGHT_MOBILE};
   left: 0;
   z-index: 50;
   width: 16rem;
-  height: 100vh;
+  height: calc(100vh - ${NAVBAR_HEIGHT_MOBILE});
   background-color: ${({ theme }) => theme.palette.primary.light};
   padding: 1rem;
   overflow-y: auto;
@@ -15,6 +18,8 @@ const SidebarContainer = styled.aside<{ $open: boolean }>`
   transform: ${({ $open }) => ($open ? "translateX(0)" : "translateX(-100%)")};
 
   @media (min-width: 640px) {
+    top: ${NAVBAR_HEIGHT_DESKTOP};
+    height: calc(100vh - ${NAVBAR_HEIGHT_DESKTOP});
     transform: translateX(0);
   }
 `;
@@ -96,11 +101,11 @@ const MenuButton = styled.button`
 `;
 
 export {
-    SidebarContainer,
-    Overlay,
-    SectionTitle,
-    NavList,
-    NavItem,
-    CloseButton,
-    MenuButton
-}
+  SidebarContainer,
+  Overlay,
+  SectionTitle,
+  NavList,
+  NavItem,
+  CloseButton,
+  MenuButton,
+};

@@ -1,7 +1,16 @@
 import styled from "styled-components";
 
 const NavbarWrapper = styled.div`
+  position: fixed; /* Fix it at the top */
+  top: 0;
+  left: 0;
+  width: 100%;
   background: ${({ theme }) => theme.palette.primary.main};
+  z-index: 50; /* Keep above other content */
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1); /* Optional: subtle shadow */
+
+  /* Ensure smooth theme changes */
+  transition: background-color 0.3s ease, color 0.3s ease;
 `;
 
 const ModeButton = styled.button`
@@ -23,4 +32,5 @@ const ModeButton = styled.button`
     opacity: 0.9;
   }
 `;
+
 export { NavbarWrapper, ModeButton };
