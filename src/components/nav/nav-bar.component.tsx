@@ -1,4 +1,4 @@
-import { useContext, useState } from "react";
+import { useContext, useState, useEffect, useRef } from "react";
 import type { FC } from "react";
 import { useTheme } from "styled-components";
 
@@ -25,6 +25,25 @@ const Navbar: FC = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const { mode } = useContext(ModeContext);
   const { udpateIsSidebarOpen } = useContext(SidebarContext);
+  const dropdownRef = useRef<HTMLDivElement>(null);
+
+  // Close on outside click
+  useEffect(() => {
+    function handleClickOutside(event: MouseEvent) {
+      if (
+        dropdownRef.current &&
+        !dropdownRef.current.contains(event.target as Node)
+      ) {
+        setIsDropdownOpen(false);
+      }
+    }
+    isDropdownOpen &&
+      document.addEventListener("mousedown", handleClickOutside);
+    return () => {
+      isDropdownOpen &&
+        document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, [isDropdownOpen]);
 
   return (
     <>
@@ -58,7 +77,7 @@ const Navbar: FC = () => {
             </button>
 
             {/* Theme Toggle */}
-            <div className="relative">
+            <div className="relative" ref={dropdownRef}>
               <ModeButton onClick={() => setIsDropdownOpen((prev) => !prev)}>
                 {mode === "light" ? (
                   <Sun color={theme.palette.primary.main} />
