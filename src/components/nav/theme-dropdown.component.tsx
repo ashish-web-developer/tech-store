@@ -36,7 +36,12 @@ const ThemeDropdown: FC = () => {
       <MenuList>
         {mode_items.map((item) => (
           <li key={item.value}>
-            <MenuItem onClick={() => modeUpdater?.(item.value as IMode)}>
+            <MenuItem
+              onClick={() => {
+                modeUpdater?.(item.value as IMode);
+                localStorage.setItem("theme", item.value);
+              }}
+            >
               {item.icon}
               {item.label}
             </MenuItem>
