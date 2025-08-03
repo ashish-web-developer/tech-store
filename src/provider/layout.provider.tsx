@@ -1,7 +1,6 @@
-import type { ReactElement } from "react";
-import { useState } from "react";
+import { useState, useLayoutEffect } from "react";
 // types
-import type { FC } from "react";
+import type { FC, ReactElement } from "react";
 import type { IMode } from "@/context";
 
 import { createGlobalStyle } from "styled-components";
@@ -36,6 +35,11 @@ const layouts: Record<IMode, ReactElement> = {
 
 const LayoutProvider: FC = () => {
   const [mode, setMode] = useState<IMode>("light");
+
+  useLayoutEffect(() => {
+    setMode(localStorage.getItem("theme") as IMode);
+  }, []);
+
   return (
     <ModeContext.Provider
       value={{
@@ -44,11 +48,6 @@ const LayoutProvider: FC = () => {
       }}
     >
       <GlobalStyle current_mode={mode} />
-      {/* {mode == "light" ? (
-        <LightLayout></LightLayout>
-      ) : (
-        <DarkLayout></DarkLayout>
-      )} */}
       {layouts[mode] ?? <LightLayout />}
     </ModeContext.Provider>
   );
