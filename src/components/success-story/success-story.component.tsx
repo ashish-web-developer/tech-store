@@ -36,7 +36,7 @@ const SuccessStory: FC = () => {
               style={{
                 color: theme.palette.info.main,
               }}
-              className="text-gray-900 text-2xl font-bold font-manrope leading-9"
+              className="text-gray-900 text-2xl font-bold leading-9"
             >
               {item.title}
             </h4>

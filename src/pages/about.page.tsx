@@ -33,7 +33,7 @@ const About: FC = () => {
           <div className="flex flex-col gap-8">
             <div className="flex flex-col gap-4">
               <SubHeading>About Us</SubHeading>
-              <Heading className="text-4xl font-bold font-manrope leading-normal">
+              <Heading className="text-4xl font-bold leading-normal">
                 Empowering Digital Experiences, One Product at a Time
               </Heading>
               <Paragraph>

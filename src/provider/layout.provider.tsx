@@ -30,6 +30,15 @@ const GlobalStyle = createGlobalStyle<{
       } else {
         return colorfulTheme.palette.primary.main;
       }
+    }};
+    font-family:${(props) => {
+      if (props.$current_mode == "dark") {
+        return "'Merriweather', 'Georgia', serif";
+      } else if (props.$current_mode == "light") {
+        return "'Inter', 'Helvetica Neue', Arial, sans-serif";
+      } else {
+        return "'Trade Winds', system-ui";
+      }
     }}
   }
 `;
