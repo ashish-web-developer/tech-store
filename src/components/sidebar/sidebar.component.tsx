@@ -1,18 +1,22 @@
-import { useState, type FC } from "react";
-import { NavLink } from "react-router-dom";
-import styled from "styled-components";
+import { useContext } from "react";
+// types
+import type { FC } from "react";
+
+// styled components
+import {
+  SidebarContainer,
+  Overlay,
+  SectionTitle,
+  NavList,
+  NavItem,
+  CloseButton,
+} from "@/styles/components/sidebar/sidebar.style";
 
 // icons
-import {
-  Home,
-  User,
-  Mail,
-  Layers,
-  FileText,
-  Settings,
-  X,
-  Menu,
-} from "lucide-react";
+import { Home, User, Mail, Layers, FileText, Settings, X } from "lucide-react";
+
+// context
+import { SidebarContext } from "@/context";
 
 const sidebar_items = [
   { icon: Home, label: "Home", path: "/" },
@@ -23,117 +27,21 @@ const sidebar_items = [
   { icon: Settings, label: "Settings", path: "/settings" },
 ];
 
-const SidebarContainer = styled.aside<{ $open: boolean }>`
-  position: fixed;
-  top: 0;
-  left: 0;
-  z-index: 50;
-  width: 16rem;
-  height: 100vh;
-  background-color: ${({ theme }) => theme.palette.primary.light};
-  padding: 1rem;
-  overflow-y: auto;
-  transition: transform 0.3s ease;
-  transform: ${({ $open }) => ($open ? "translateX(0)" : "translateX(-100%)")};
-
-  @media (min-width: 640px) {
-    transform: translateX(0);
-  }
-`;
-
-const Overlay = styled.div<{ $open: boolean }>`
-  display: ${({ $open }) => ($open ? "block" : "none")};
-  position: fixed;
-  inset: 0;
-  background: rgba(0, 0, 0, 0.4);
-  z-index: 40;
-
-  @media (min-width: 640px) {
-    display: none;
-  }
-`;
-
-const SectionTitle = styled.h3`
-  color: ${({ theme }) => theme.palette.info.light};
-  font-size: 0.75rem;
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-  margin-bottom: 0.75rem;
-`;
-
-const NavList = styled.ul`
-  display: flex;
-  flex-direction: column;
-  gap: 0.5rem;
-`;
-
-const NavItem = styled(NavLink)`
-  display: flex;
-  align-items: center;
-  gap: 0.75rem;
-  padding: 0.5rem;
-  border-radius: 0.5rem;
-  color: ${({ theme }) => theme.palette.info.main};
-  font-weight: 500;
-  text-decoration: none;
-  transition: background-color 0.2s, color 0.2s;
-
-  &.active {
-    background-color: ${({ theme }) => theme.palette.info.main};
-    color: ${({ theme }) => theme.palette.primary.main};
-  }
-
-  &:hover {
-    background-color: ${({ theme }) => theme.palette.info.main}22;
-  }
-`;
-
-const CloseButton = styled.button`
-  position: absolute;
-  top: 1rem;
-  right: 1rem;
-  color: ${({ theme }) => theme.palette.info.main};
-  background: none;
-  border: none;
-  cursor: pointer;
-
-  @media (min-width: 640px) {
-    display: none;
-  }
-`;
-
-const MenuButton = styled.button`
-  display: flex;
-  align-items: center;
-  padding: 0.5rem;
-  background: none;
-  border: none;
-  color: ${({ theme }) => theme.palette.info.main};
-  cursor: pointer;
-
-  @media (min-width: 640px) {
-    display: none;
-  }
-`;
-
 const Sidebar: FC = () => {
-  const [open, setOpen] = useState(false);
+  const { is_sidebar_open, udpateIsSidebarOpen } = useContext(SidebarContext);
 
   return (
     <>
-      {/* Mobile Menu Button */}
-      <MenuButton onClick={() => setOpen(true)}>
-        <Menu size={24} />
-      </MenuButton>
-
       {/* Overlay */}
-      <Overlay $open={open} onClick={() => setOpen(false)} />
+      <Overlay
+        $open={is_sidebar_open}
+        onClick={() => udpateIsSidebarOpen?.(false)}
+      />
 
       {/* Sidebar */}
-      <SidebarContainer $open={open} aria-label="Sidebar">
+      <SidebarContainer $open={is_sidebar_open} aria-label="Sidebar">
         {/* Close Button inside sidebar */}
-        <CloseButton onClick={() => setOpen(false)}>
+        <CloseButton onClick={() => udpateIsSidebarOpen?.(false)}>
           <X size={24} />
         </CloseButton>
 
@@ -141,7 +49,10 @@ const Sidebar: FC = () => {
         <NavList>
           {sidebar_items.map((item) => (
             <li key={item.path}>
-              <NavItem to={item.path} onClick={() => setOpen(false)}>
+              <NavItem
+                to={item.path}
+                onClick={() => udpateIsSidebarOpen?.(false)}
+              >
                 <item.icon size={18} />
                 {item.label}
               </NavItem>

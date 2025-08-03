@@ -17,13 +17,14 @@ import ThemeDropdown from "@/components/nav/theme-dropdown.component";
 import { Moon, Sun, Menu, X } from "lucide-react";
 
 // context
-import { ModeContext } from "@/context";
+import { ModeContext, SidebarContext } from "@/context";
 
 const Navbar: FC = () => {
+  const theme = useTheme();
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const theme = useTheme();
   const { mode } = useContext(ModeContext);
+  const { udpateIsSidebarOpen } = useContext(SidebarContext);
 
   return (
     <>
@@ -40,7 +41,13 @@ const Navbar: FC = () => {
             {/* Mobile Hamburger Icon */}
             <button
               className="sm:hidden p-2 rounded-lg hover:bg-gray-100 transition-colors"
-              onClick={() => setIsMobileMenuOpen((prev) => !prev)}
+              onClick={() => {
+                if (mode == "dark") {
+                  udpateIsSidebarOpen?.(true);
+                } else {
+                  setIsMobileMenuOpen((prev) => !prev);
+                }
+              }}
               aria-label="Toggle menu"
             >
               {isMobileMenuOpen ? (
@@ -68,7 +75,7 @@ const Navbar: FC = () => {
         {/* Mobile Menu (Dropdown from top) */}
         {isMobileMenuOpen && (
           <div className="sm:hidden w-full bg-white shadow-md border-t border-gray-200">
-            <NavLinks isMobileMenuOpen = {isMobileMenuOpen} />
+            <NavLinks isMobileMenuOpen={isMobileMenuOpen} />
           </div>
         )}
       </NavbarWrapper>
