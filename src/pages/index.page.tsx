@@ -3,7 +3,7 @@ import { useTheme } from "styled-components";
 // components
 import Hero from "@/components/hero/hero.component";
 import ProductsGallery from "@/components/products-gallery/products-gallery.component";
-import Offer from "@/components/offer/offer.component";
+import Offer from "@/components/footer/footer.component";
 import ProductCategory from "@/components/product-category/product-category.component";
 
 // icons
